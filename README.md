@@ -2,7 +2,7 @@
 Drawing with React JS, Canvas, JavaScript  
 This project can be used as an element in more complex projects.
 
-##Task
+## Task
 Fill a regular polygon with triangles.  
 Triangles must have vertices that coincide with the vertices  
 of the polygon and not have common points, including vertices.  
