@@ -15,6 +15,6 @@ This project can be used as an element in more complex projects.
 The project is made in version React 18.2.0.
 
 Clone the repository and run the following:
-* `npm i`
-* `npm start`
+* npm i
+* npm start
 * navigate to `http://localhost:3000/`
