@@ -5,7 +5,8 @@ This project can be used as an element in more complex projects.
 ## Task
 Fill a regular polygon with triangles.  
 Triangles must have vertices that coincide with the vertices  
-of the polygon and not have common points, including vertices.  
+of the polygon and not have common points, including vertices,  
+and also filling the largest area of the polygon
 
 
 ## Languages and Tools
