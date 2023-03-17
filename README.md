@@ -1,4 +1,4 @@
-# Drawing_polygons
+# Polygon triangulation
 Drawing with React JS, Canvas, JavaScript  
 This project can be used as an element in more complex projects.
 
