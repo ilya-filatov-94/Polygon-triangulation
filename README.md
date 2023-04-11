@@ -1,6 +1,6 @@
 # Polygon triangulation
 Drawing with React JS, Canvas, JavaScript  
-I came across this synthetic task at one of the competitions in JavaScript programming and I liked it so much that I decided to visualize it using a canvas.  
+I came across this synthetic task at one of the competitions in JavaScript programming and I liked it so much that I decided to visualize it using a Canvas.  
 
 ## Task
 Fill a regular polygon with triangles.  
