@@ -6,7 +6,7 @@ I came across this synthetic task at one of the competitions in JavaScript progr
 Fill a regular polygon with triangles.  
 Triangles must have vertices that coincide with the vertices  
 of the polygon and not have common points, including vertices,  
-and also filling the largest area of the polygon
+and also filling the largest area of the polygon  
 The answer is considered correct if the absolute or relative error is not more than 1*10e-6
 
 
