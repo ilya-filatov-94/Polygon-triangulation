@@ -25,4 +25,4 @@ The project is made in version React 18.2.0.
 Clone the repository and run the following:
 * npm i
 * npm start
-* navigate to `http://localhost:3000/`
+* navigate to `http://localhost:3000`
