@@ -1,5 +1,4 @@
 
-//Для отрисовки по радиусу описанной окружности вычисление координат равностороннего многоугольника
 function getPolygonVertexCoordinates(offsetX, offsetY, size, n) {
     if (n < 3) return;  //Если число сторон многоугольника <3 - ничего не рисуем, выходим
     let angle = 2 * Math.PI / n;
@@ -14,11 +13,9 @@ function getPolygonVertexCoordinates(offsetX, offsetY, size, n) {
     return coordinates;
 }
 
-//Рисуем Полигон из n-точек
 function paintPoligon(canvas, coordinates) {
     if (coordinates.length < 2) return;
     canvas.beginPath();
-    //Повернём фигуру на 90 градусов против часовой
     canvas.moveTo(coordinates[1], coordinates[0]);
     for (let i = 2; i <= (coordinates.length - 1); i += 2) {
         canvas.lineTo(coordinates[i + 1], coordinates[i]);
@@ -29,29 +26,26 @@ function paintPoligon(canvas, coordinates) {
 
 function getSumAreaTriangleFromPolygon(stackNodes, n, R, ofsetX, ofsetY) {
 
-    if (n < 3) return;                                      //Если число сторон многоугольника <3 - не существует
+    if (n < 3) return;
     let vertexPolygonXY;
     vertexPolygonXY = createRightPoligon(ofsetX, ofsetY, R, n);
-    let summArea = 0;                                       //Результирующая сумма площадей тругольников
-    summArea = getAreaBigTriangle(n, stackNodes);           //Получаем площадь самого большого треугольника
+    let summArea = 0; 
+    summArea = getAreaBigTriangle(n, stackNodes);
 
-    //Получаем сумму площадей маленьких треугольников
     getAreaSmallTriangle(stackNodes[0] + 1, stackNodes[1] - 1);
     getAreaSmallTriangle(stackNodes[1] + 1, stackNodes[2] - 1);
     getAreaSmallTriangle(stackNodes[2] + 1, n);
 
     function getAreaBigTriangle(n, arrStack) {
-        let neighbourNodes = [];    //массив соседей всех уровней к фиксируемой вершине
-        let dataBigTriangle = [];   //массив объектов с данным о треугольниках
-        let startNode = 1;          //фиксируем 1-ую вершину n-угольника
+        let neighbourNodes = []; 
+        let dataBigTriangle = [];
+        let startNode = 1;
         let S = 0;
 
-        //Массив пар соседних вершин для 1-ой вершины по всем уровням соседства
         for (let i = startNode + 1; i <= Math.ceil(n / 2); i++) {
             neighbourNodes.push([i, n - i + 2]);
         }
 
-        //Вычисление площадей треугольников с фиксированной вершиной 1 и парами соседей всех уровней
         for (let i = 0; i < neighbourNodes.length; i++) {
             let [n2, n3] = neighbourNodes[i];
             S = getAreaTriangleFromNumberVertex(startNode, n2, n3);
@@ -59,14 +53,12 @@ function getSumAreaTriangleFromPolygon(stackNodes, n, R, ofsetX, ofsetY) {
         }
         let biggerArea = dataBigTriangle[0].area;
         let indexVertex = 0;
-        //Наибольшая площадь треугольника с вершиной 1
         for (let i = 0; i < dataBigTriangle.length; i++) {
             if (dataBigTriangle[i].area > biggerArea) {
                 biggerArea = dataBigTriangle[i].area;
                 indexVertex = i;
             }
         }
-        //Помещаем пройденные вершины в стек
         arrStack.push(dataBigTriangle[indexVertex].n1);
         arrStack.push(dataBigTriangle[indexVertex].n2);
         arrStack.push(dataBigTriangle[indexVertex].n3);
@@ -143,7 +135,6 @@ function getSumAreaTriangleFromPolygon(stackNodes, n, R, ofsetX, ofsetY) {
     return summArea.toFixed(6);
 }
 
-//Отрисовываем треугольники внутри n-угольника
 function paintTriangleInPolygon(canvas, coordinates, stackNodes) {
     let arrayYXPoligon = [];
     for (let i = 0; i < coordinates.length; i+=2) {
